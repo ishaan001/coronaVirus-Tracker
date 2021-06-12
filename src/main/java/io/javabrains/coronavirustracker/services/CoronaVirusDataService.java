@@ -36,6 +36,7 @@ public class CoronaVirusDataService {
 	public void fetchVirusData() throws IOException, InterruptedException {
 
 		List<LocationStats> newstats = new ArrayList<LocationStats>();
+		
 
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(VIRUS_DATA_URL)).build();
@@ -47,10 +48,21 @@ public class CoronaVirusDataService {
 			locationStat.setState(record.get("Province/State"));
 			locationStat.setCountry(record.get("Country/Region"));
 			locationStat.setLatestTotalCases(Integer.parseInt(record.get(record.size() - 1)));
-			System.out.println(locationStat);
+			int latestCases = Integer.parseInt(record.get(record.size() - 1));
+			int prevDayCases = Integer.parseInt(record.get(record.size() - 2));
+			locationStat.setDiffFromPrevDay(latestCases - prevDayCases);
+			//System.out.println(locationStat);
 			newstats.add(locationStat);
 		}
 		this.allstats = newstats;
+	}
+
+	public List<LocationStats> getAllstats() {
+		return allstats;
+	}
+
+	public void setAllstats(List<LocationStats> allstats) {
+		this.allstats = allstats;
 	}
 
 }
