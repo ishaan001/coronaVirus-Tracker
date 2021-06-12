@@ -13,7 +13,7 @@
 <li>new cases reported since yesterday</li>
 </ul>
 </li>
-<li>Data have been take from https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv</li> 
+<li>Data has been taken from https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv</li> 
 </ul>
 
 <h1> Tech Stack Used </h1>
